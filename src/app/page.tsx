@@ -22,6 +22,7 @@ import { AssistantDemo } from "@/components/assistant-demo";
 import { FAQ } from "@/components/faq";
 import { Reactor } from "@/components/reactor";
 import { DesktopPreview } from "@/components/desktop-preview";
+import { ProductVideo } from "@/components/product-video";
 import { JsonLd } from "@/components/json-ld";
 import { absoluteSiteUrl, pageMetadata, siteDescription } from "@/lib/seo";
 
@@ -124,8 +125,8 @@ export default function Home() {
               <Link className="button button-primary" href="/download">
                 <Monitor size={18} /> Windows için indir <ArrowUpRight size={18} />
               </Link>
-              <Link className="button button-ghost" href="/docs/baslangic">
-                Jarvis’i tanı <ArrowRight size={17} />
+              <Link className="button button-ghost" href="#kullanim-videosu">
+                1 dakikada izle <ArrowRight size={17} />
               </Link>
             </div>
             <div className="hero-meta">
@@ -148,6 +149,7 @@ export default function Home() {
           </a>
         </div>
       </section>
+      <ProductVideo />
       <Reactor />
       <section className="container concept-section" aria-label="Örnek komut deneyimi">
         <span className="eyebrow">BİR KOMUTUN YOLCULUĞU · ETKİLEŞİMLİ DEMO</span>

@@ -3,14 +3,15 @@ import Link from "next/link";
 import { ArrowUpRight, KeyRound, Mic, Monitor } from "lucide-react";
 import { CopyCode } from "@/components/copy-code";
 import { pageMetadata } from "@/lib/seo";
+import { getRelease } from "@/lib/release";
 export const metadata: Metadata = pageMetadata(
   "/support",
   "Yardım merkezi",
   "Jarvis açılmıyor, mikrofon algılanmıyor veya API bağlantısı kurulamıyor mu? Kurulum rehberlerine ulaş ve destek için hata bildirimini hazırla.",
 );
-const template =
-  "Uygulama sürümü:\nWindows sürümü:\nAI sağlayıcısı (anahtar paylaşma):\n\nNe yapmak istiyordum?\n\nTekrarlama adımları:\n1.\n2.\n\nBeklediğim sonuç:\nGerçekleşen sonuç:\nHata mesajı (kişisel bilgileri temizle):";
 export default function SupportPage() {
+  const release = getRelease();
+  const template = `Uygulama sürümü: ${release?.version || "(kullandığın sürüm)"} (farklıysa düzelt)\nWindows sürümü:\nİlk kurulum mu, güncelleme mi?:\nAI sağlayıcısı (anahtar paylaşma):\n\nNe yapmak istiyordum?\n\nTekrarlama adımları:\n1.\n2.\n\nBeklediğim sonuç:\nGerçekleşen sonuç:\nHata mesajı (kişisel bilgileri temizle):`;
   return (
     <main id="main" className="container">
       <div className="page-intro">
