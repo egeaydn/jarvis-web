@@ -1,0 +1,307 @@
+[
+  {
+    "slug": "baslangic",
+    "title": "Jarvis ile tanış",
+    "description": "Jarvis nedir, ne yapar ve nasıl kullanılır? Windows için Türkçe masaüstü asistanını, API gereksinimlerini ve ilk komut adımlarını tanı.",
+    "updatedAt": "2026-09-09",
+    "group": "Başlarken",
+    "time": "3 dk",
+    "order": 0,
+    "sections": [
+      {
+        "id": "nedir",
+        "title": "Jarvis nedir?",
+        "body": [
+          "Jarvis (Ege Assistant), Ege Aydın tarafından geliştirilen Windows için Türkçe bir masaüstü yapay zekâ asistanıdır. Bir isteği yazabilir veya mikrofonla söyleyebilirsin. Jarvis uygun araçları seçerek uygulama açma, dosya bulma ve not alma gibi işlemleri gerçekleştirir.\n\nBeta uygulaması ücretsizdir ve kendi AI sağlayıcı hesabınla çalışır. Varsayılan sağlayıcı Groq’tur; NVIDIA ve Gemini de seçilebilir. API kullanım ücretleri ve kotaları sağlayıcı hesabına bağlıdır.\n\nBu sitedeki etkileşimli önizleme örnek senaryolar gösterir; bilgisayarında işlem yapmaz.\n\nJarvis tamamen çevrimdışı değildir: model yanıtları ve Google üzerinden konuşma tanıma internet gerektirir; ekran analizi Gemini kullanır. Ayrıntılar için [veri ve gizlilik rehberini](/docs/gizlilik) oku."
+        ]
+      },
+      {
+        "id": "gerekenler",
+        "title": "Başlamadan önce",
+        "body": [
+          "Windows bilgisayar, internet bağlantısı ve desteklenen model sağlayıcılarından birine ait API anahtarı gerekir. Sesli kullanım için mikrofon gerekir; yazılı kullanım da mevcuttur.\n\nBeta paketinin bulunabilirliğini, sürümünü ve doğrulama bilgilerini indirme merkezinden kontrol et. İlk bağlantıyı masaüstündeki Ayarlar ve AI bağlantısı bölümünden yap; varsayılan sağlayıcı Groq’tur."
+        ]
+      },
+      {
+        "id": "ilk-komut",
+        "title": "Küçük bir istekle başla",
+        "body": [
+          "Kolayca doğrulayabileceğin bir komut dene. Sonucu uygulamanın yanıtından ve bilgisayarındaki değişiklikten kontrol et."
+        ]
+      },
+      {
+        "id": "kontrol",
+        "title": "Kontrol sende",
+        "body": [
+          "Dosya silme, terminal komutu ve bazı sistem işlemleri için onay mekanizması vardır. Gösterilen işlemi kontrol ederek karar ver. Karmaşık istekleri küçük adımlara ayırmak sonucu takip etmeyi kolaylaştırır."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "kurulum",
+    "title": "Windows kurulumu",
+    "description": "Jarvis Windows x64 beta EXE kurulumu, ilk açılış ve Groq API bağlantısı. Python gerektirmeyen paket ve kaynak koddan kurulum adımları.",
+    "updatedAt": "2026-09-09",
+    "group": "Başlarken",
+    "time": "5 dk",
+    "order": 1,
+    "sections": [
+      {
+        "id": "paket",
+        "title": "İndirilebilir sürüm",
+        "body": [
+          "İndirme merkezinde sunulan Windows x64 beta EXE’sini indir. Dosya boyutunu ve SHA-256 bilgisini kontrol et. Bu tek dosyalık uygulama için Python kurman gerekmez.\n\nEXE’yi çift tıklayarak aç. İlk açılışta dosyaların geçici klasöre çıkarılması birkaç saniye sürebilir. **Ayarlar ve AI bağlantısı** bölümünden Groq’u seç, kendi API anahtarını gir ve kaydet. Anahtarın yoksa arayüz açık kalır; bağlantını daha sonra tamamlayabilirsin.\n\nBeta henüz kod imzalı değildir; Windows yayıncı doğrulaması gösteremeyebilir. Temiz Windows kurulumu ve farklı cihaz testleri sürmektedir.\n\n \n  Aşağıdaki terminal adımları yalnızca kaynak koddan çalıştırmak isteyen geliştiriciler içindir."
+        ]
+      },
+      {
+        "id": "ortam",
+        "title": "Geliştirme ortamını hazırla",
+        "body": [
+          "Python 3.12 veya üzerini kur. Windows terminalinde ege-assistant proje klasörüne geç. Komutları bu klasörde çalıştır.\n\npython -m venv .venv\n.\\.venv\\Scripts\\python.exe -m pip install -r requirements.txt"
+        ]
+      },
+      {
+        "id": "ayarlar",
+        "title": "Model bağlantısını yapılandır",
+        "body": [
+          ".env.example dosyasını .env olarak kopyala. Seçtiğin sağlayıcının anahtarını kendi bilgisayarında ekle; kaynak kod deposuna koyma.\n\nMasaüstü arayüzü model bağlantısını arka planda hazırlar. Yapılandırma eksikse Ayarlar ve AI bağlantısı bölümünden tamamla. Varsayılan sağlayıcı Groq’tur.\n\nCopy-Item .env.example .env"
+        ]
+      },
+      {
+        "id": "calistir",
+        "title": "Uygulamayı başlat",
+        "body": [
+          "Grafik arayüz için ilk komutu kullan. Terminalde yazılı veya sesli etkileşim için alternatif modlar bulunur."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "saglayicilar",
+    "title": "AI sağlayıcıları",
+    "description": "Jarvis için Groq, NVIDIA veya Gemini API anahtarını yapılandır. Varsayılan sağlayıcı, ekran analizi gereksinimleri ve bağlantı sorunları.",
+    "updatedAt": "2026-09-09",
+    "group": "Başlarken",
+    "time": "4 dk",
+    "order": 2,
+    "sections": [
+      {
+        "id": "secim",
+        "title": "Kendi sağlayıcını seç",
+        "body": [
+          "Varsayılan sağlayıcı Groq’tur. Masaüstündeki **Ayarlar ve AI bağlantısı** bölümünden Groq, NVIDIA veya Gemini seçip kendi anahtarını kaydet. Site anahtarını istemez. Kullanım limitleri ve olası ücretler sağlayıcı hesabına bağlıdır.\n\nKaydedilen anahtar Windows kullanıcı hesabına bağlı DPAPI şifrelemesiyle saklanır. Kaynak koddan çalıştırırken .env dosyası da kullanılabilir."
+        ]
+      },
+      {
+        "id": "degiskenler",
+        "title": "Ortam değişkenleri",
+        "body": [
+          "Aşağıdaki değerler örnektir, gerçek anahtar içermez. Ana sağlayıcı için nvidia, groq veya gemini seç."
+        ]
+      },
+      {
+        "id": "gorsel",
+        "title": "Ekran analizi",
+        "body": [
+          "Ekran analizi Gemini bağlantısını kullanır. Ana sohbet sağlayıcın farklı olsa da ilgili Gemini yapılandırması gerekir. Ekran görüntüsü alma ile görüntüyü modele gönderme farklı işlemlerdir."
+        ]
+      },
+      {
+        "id": "hatalar",
+        "title": "Bağlantı kontrolü",
+        "body": [
+          "Anahtar hatasında seçili sağlayıcıyı, kota hatasında hesap limitlerini, ağ hatasında internet erişimini kontrol et. Arayüzden kaydedilen bağlantı yeniden hazırlanır; .env değişikliği için uygulamayı yeniden başlat."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "sesli-kullanim",
+    "title": "Sesli kullanım",
+    "description": "Mikrofon, uyandırma kelimesi ve sesli yanıtlar.",
+    "updatedAt": "2026-09-09",
+    "group": "Kullanım",
+    "time": "4 dk",
+    "order": 3,
+    "sections": [
+      {
+        "id": "mikrofon",
+        "title": "Mikrofonunu hazırla",
+        "body": [
+          "Windows ses ayarlarından giriş cihazını ve masaüstü uygulamalarının mikrofon erişimini kontrol et. Cihazı kullanan başka bir uygulama varsa kapatıp tekrar dene."
+        ]
+      },
+      {
+        "id": "dinleme",
+        "title": "Yazarak veya konuşarak",
+        "body": [
+          "Arayüzün mikrofon kontrolünü kullan. Terminalde --voice modu Enter ile dinlemeyi başlatır. Net ve kısa bir komut söyle. Sesli yanıt için sistem seslendirmesi kullanılır; ses düzeyini ve çıkış cihazını kontrol et."
+        ]
+      },
+      {
+        "id": "uyandirma",
+        "title": "Merhaba veya Hey Jarvis",
+        "body": [
+          "**Ayarlar ve AI bağlantısı** bölümünden **Arka planda “Merhaba” / “Hey Jarvis” dinlemesi** seçeneğini aç. Bu tercih yeni kurulumda kapalıdır. Ana ekranda **MERHABA DE · DİNLİYOR** yazısını gördüğünde pencereyi kapatarak tepsiye gizleyebilir, ardından “merhaba” diyebilirsin. Uygulama karşılamayı bitirince komutunu söyle.\n\nTepsi menüsünden mikrofonu açma veya kapatma tercihi kaydedilir. **UYANDIRMA KAPALI** görünüyorsa dinleme kapalıdır; **MİKROFON BEKLENİYOR** görünüyorsa cihaz erişimini kontrol et. Tepsi menüsünden uygulamadan tamamen çıkarsan uyandırma da durur.\n\nİsteğe bağlı Porcupine motoru uygun erişim anahtarı ve özel kelime dosyası gerektirir; hangi ifadeyi algılayacağı bu dosyaya bağlıdır.\n\nYerel kelime doğrulaması bütün ses zincirinin yerel olduğu anlamına gelmez. Mevcut STT ve alternatif uyandırma akışında Google üzerinden tanıma yapılabilir."
+        ]
+      },
+      {
+        "id": "ipuclari",
+        "title": "Daha iyi sonuç almak için",
+        "body": [
+          "İlk kalibrasyonda sessiz kal. Doğal konuş ve önceki yanıtın bitmesini bekle. Ses sorunu yaşarsan yazılı komutla devam edebilirsin."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "komutlar",
+    "title": "Komut rehberi",
+    "description": "Günlük işlerine uyarlayabileceğin örnek istekler.",
+    "updatedAt": "2026-09-09",
+    "group": "Kullanım",
+    "time": "4 dk",
+    "order": 4,
+    "sections": [
+      {
+        "id": "uygulamalar",
+        "title": "Uygulamalar ve tarayıcı",
+        "body": [
+          "İsteğini doğal Türkçeyle yaz. Uygulama bilgisayarında kurulu olmalı; web araması tarayıcıda açılır.\n\nHesap makinesini aç.\nWeb'de Python dokümantasyonunu ara.\nÇalışan uygulamaları göster."
+        ]
+      },
+      {
+        "id": "dosyalar",
+        "title": "Dosyalarına ulaş",
+        "body": [
+          "Dosya adını veya yolu açıkça belirt. Taşıma ve silme isteklerinde kaynağı ve hedefi kontrol et."
+        ]
+      },
+      {
+        "id": "notlar",
+        "title": "Aklındakileri kaydet",
+        "body": [
+          "Not tutabilir, notlarını arayabilir veya zamanı belirterek hatırlatıcı isteyebilirsin. Hatırlatıcı için uygulama açık olmalı."
+        ]
+      },
+      {
+        "id": "ekran",
+        "title": "Ekran hakkında yardım al",
+        "body": [
+          "Analiz için ekran görüntüsü dış sağlayıcıya gönderilir. Paylaşmak istemediğin içerikleri önceden kapat.\n\nEkrandaki hata mesajını açıkla."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "gizlilik",
+    "title": "Gizlilik ve kontrol",
+    "description": "Hangi veri nerede işlenir? Kontrollerini tanı.",
+    "updatedAt": "2026-09-09",
+    "group": "Kullanım",
+    "time": "5 dk",
+    "order": 5,
+    "sections": [
+      {
+        "id": "veri",
+        "title": "Model bağlantısı",
+        "body": [
+          "Sohbet istekleri ve araç sonuçları seçili sağlayıcıya gönderilebilir. Sonuçlarda dosya adları, yollar veya içerik bulunabilir. Jarvis'in bütün işlevleri çevrimdışı çalışmaz."
+        ]
+      },
+      {
+        "id": "ses",
+        "title": "Ses ve ekran",
+        "body": [
+          "Konuşma tanıma Google üzerinden, ekran analizi Gemini üzerinden çalışır. STT tabanlı uyandırmada da ses dış servise gönderilebilir.\n\nWeb sitesindeki demo ses kaydetmez, ekranını okumaz ve bilgisayarında komut yürütmez."
+        ]
+      },
+      {
+        "id": "yerel",
+        "title": "Yerel kayıtlar",
+        "body": [
+          "Paketlenmiş uygulama sohbet, araç, not ve hatırlatıcı kayıtlarını Windows kullanıcı klasöründeki **%LOCALAPPDATA%\\\\EgeAssistant\\\\Jarvis** dizininde saklayabilir. Kaynak koddan çalıştırmada data dizini kullanılır.\n\nPano geçmişi ve arka plan mikrofonu yeni kurulumda kapalıdır; Ayarlar bölümünden açılabilir. API anahtarları Windows kullanıcı hesabına bağlı şifrelemeyle kaydedilir. İndirilen EXE kişisel API anahtarlarını veya geliştiricinin sohbet geçmişini içermez. “Sohbeti temizle” ekranı temizler; diskteki bütün kayıtları sildiği anlamına gelmez."
+        ]
+      },
+      {
+        "id": "onay",
+        "title": "İşlem onayları",
+        "body": [
+          "Dosya silme, terminal, kayıt defteri ve bazı sistem işlemlerinde onay katmanı bulunur. Gösterilen işlemi incele. Reddedilen bir işlemin yürütülmesi hata olarak ele alınmalıdır."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "sorun-giderme",
+    "title": "Sorun giderme",
+    "description": "Bağlantı, açılış ve ses sorunları için kontrol adımları.",
+    "updatedAt": "2026-09-09",
+    "group": "Yardım",
+    "time": "5 dk",
+    "order": 6,
+    "sections": [
+      {
+        "id": "acilis",
+        "title": "Uygulama açılmıyor",
+        "body": [
+          "EXE’nin çıkarılması için ilk açılışta birkaç saniye bekle. Tepsi simgesini kontrol et; uygulama arka planda açık olabilir. Pencere açılıyor ancak bağlantı kurulmuyorsa **Ayarlar ve AI bağlantısı** bölümünden sağlayıcını ve anahtarını kontrol et.\n\nAçılış hataları %LOCALAPPDATA%\\\\EgeAssistant\\\\Jarvis klasöründeki kayıtlarda bulunabilir. Kaynak koddan çalıştırıyorsan terminal çıktısını ve bağımlılıkların aynı sanal ortamda kurulu olduğunu kontrol et."
+        ]
+      },
+      {
+        "id": "ses",
+        "title": "Mikrofon algılanmıyor",
+        "body": [
+          "Windows giriş cihazını ve izinleri kontrol et. Cihazı kullanan uygulamaları kapat. Yeniden başlatıp yazılı modla sorunun yalnızca seste olup olmadığını ayırt et."
+        ]
+      },
+      {
+        "id": "kota",
+        "title": "Yanıt veya kota hatası",
+        "body": [
+          "İnternet bağlantısını, hesap kullanım limitlerini ve model erişimini incele. Kota sınırı model sağlayıcısının hesabına bağlıdır."
+        ]
+      },
+      {
+        "id": "bildirim",
+        "title": "Sorunu kaydet",
+        "body": [
+          "Uygulama/Windows sürümünü, sağlayıcı adını, tekrarlama adımlarını ve beklenen/gerçek sonucu not al. API anahtarı, pano veya özel konuşma paylaşma. Destek sayfasındaki şablonu kullanabilirsin."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "guncellemeler",
+    "title": "Sürümler ve güncelleme",
+    "description": "Yayın durumunu ve güncelleme yaklaşımını takip et.",
+    "updatedAt": "2026-09-09",
+    "group": "Yardım",
+    "time": "2 dk",
+    "order": 7,
+    "sections": [
+      {
+        "id": "durum",
+        "title": "Beta dağıtımı",
+        "body": [
+          "Beta EXE’sinin güncel durumunu indirme merkezinden kontrol et. Web sitesi v0.3 ve masaüstü 0.1.0-beta.1 ayrı sürümlerdir. Mevcut beta Groq varsayılanını, mint/grafit arayüzü ve kalıcı mikrofon tercihini içerir."
+        ]
+      },
+      {
+        "id": "dogrulama",
+        "title": "Doğru dosyayı seç",
+        "body": [
+          "Sürüm, platform ve yayıncı bilgilerini incele. SHA-256 dosya bütünlüğünü kontrol eder; yayıncı kimliğini doğrulayan kod imzasından farklıdır.\n\nİndirilen dosyanın bulunduğu klasörde PowerShell ile aşağıdaki komutu çalıştır. Hash değerini indirme sayfasındaki SHA-256 ile karşılaştır; aynı olmalıdır."
+        ]
+      },
+      {
+        "id": "yukseltme",
+        "title": "Güncellemeden önce",
+        "body": [
+          "Sürüm notlarını oku. Tepsi menüsünden Jarvis’ten çık, yeni EXE’yi ayrı bir klasöre indir ve aç. Önceki dosyayı doğrulamadan silme. Kişisel veriler EXE’nin yanında değil, %LOCALAPPDATA%\\\\EgeAssistant\\\\Jarvis içinde tutulur; güncellemeden önce bu klasörün yedeğini alabilirsin. Anahtar şifrelemesi Windows hesabına bağlıdır; başka bilgisayara taşındığında anahtarını yeniden girmen gerekebilir. Otomatik güncelleme henüz yoktur."
+        ]
+      }
+    ]
+  }
+]

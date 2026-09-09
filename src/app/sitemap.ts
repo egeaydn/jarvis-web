@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
 import { docs } from "@/lib/docs";
+import { seoSettings } from "@/lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
-  return ["", "/download", "/support", "/changelog", ...docs.map((doc) => `/docs/${doc.slug}`)].map(
-    (path) => ({ url: `${base}${path}` }),
-  );
+  const { origin: base, indexable } = seoSettings();
+  if (!base || !indexable) return [];
+  return ["", "/commands", "/download", "/support", "/changelog"]
+    .map((path) => ({ url: `${base}${path}` }))
+    .concat(docs.map((doc) => ({ url: `${base}/docs/${doc.slug}`, lastModified: doc.updatedAt })));
 }

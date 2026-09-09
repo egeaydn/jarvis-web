@@ -1,0 +1,57 @@
+import { CopyCode } from "@/components/copy-code";
+
+<section className="doc-section" id="paket">
+
+## İndirilebilir sürüm
+
+İndirme merkezinde sunulan Windows x64 beta EXE’sini indir. Dosya boyutunu ve SHA-256 bilgisini kontrol et. Bu tek dosyalık uygulama için Python kurman gerekmez.
+
+EXE’yi çift tıklayarak aç. İlk açılışta dosyaların geçici klasöre çıkarılması birkaç saniye sürebilir. **Ayarlar ve AI bağlantısı** bölümünden Groq’u seç, kendi API anahtarını gir ve kaydet. Anahtarın yoksa arayüz açık kalır; bağlantını daha sonra tamamlayabilirsin.
+
+Beta henüz kod imzalı değildir; Windows yayıncı doğrulaması gösteremeyebilir. Temiz Windows kurulumu ve farklı cihaz testleri sürmektedir.
+
+<aside className="notice">
+  Aşağıdaki terminal adımları yalnızca kaynak koddan çalıştırmak isteyen geliştiriciler içindir.
+</aside>
+
+</section>
+
+<section className="doc-section" id="ortam">
+
+## Geliştirme ortamını hazırla
+
+Python 3.12 veya üzerini kur. Windows terminalinde ege-assistant proje klasörüne geç. Komutları bu klasörde çalıştır.
+
+<CopyCode
+  code={"python -m venv .venv\n.\\.venv\\Scripts\\python.exe -m pip install -r requirements.txt"}
+  label="POWERSHELL"
+/>
+
+</section>
+
+<section className="doc-section" id="ayarlar">
+
+## Model bağlantısını yapılandır
+
+.env.example dosyasını .env olarak kopyala. Seçtiğin sağlayıcının anahtarını kendi bilgisayarında ekle; kaynak kod deposuna koyma.
+
+Masaüstü arayüzü model bağlantısını arka planda hazırlar. Yapılandırma eksikse Ayarlar ve AI bağlantısı bölümünden tamamla. Varsayılan sağlayıcı Groq’tur.
+
+<CopyCode code={"Copy-Item .env.example .env"} label="POWERSHELL" />
+
+</section>
+
+<section className="doc-section" id="calistir">
+
+## Uygulamayı başlat
+
+Grafik arayüz için ilk komutu kullan. Terminalde yazılı veya sesli etkileşim için alternatif modlar bulunur.
+
+<CopyCode
+  code={
+    ".\\.venv\\Scripts\\python.exe main.py\n.\\.venv\\Scripts\\python.exe main.py --text\n.\\.venv\\Scripts\\python.exe main.py --voice"
+  }
+  label="POWERSHELL"
+/>
+
+</section>

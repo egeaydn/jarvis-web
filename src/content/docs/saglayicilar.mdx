@@ -1,0 +1,42 @@
+import { CopyCode } from "@/components/copy-code";
+
+<section className="doc-section" id="secim">
+
+## Kendi sağlayıcını seç
+
+Varsayılan sağlayıcı Groq’tur. Masaüstündeki **Ayarlar ve AI bağlantısı** bölümünden Groq, NVIDIA veya Gemini seçip kendi anahtarını kaydet. Site anahtarını istemez. Kullanım limitleri ve olası ücretler sağlayıcı hesabına bağlıdır.
+
+Kaydedilen anahtar Windows kullanıcı hesabına bağlı DPAPI şifrelemesiyle saklanır. Kaynak koddan çalıştırırken .env dosyası da kullanılabilir.
+
+</section>
+
+<section className="doc-section" id="degiskenler">
+
+## Ortam değişkenleri
+
+Aşağıdaki değerler örnektir, gerçek anahtar içermez. Ana sağlayıcı için nvidia, groq veya gemini seç.
+
+<CopyCode
+  code={
+    "LLM_PROVIDER=groq\nGROQ_API_KEY=kendi_anahtarin\n\n# İlgili sağlayıcıyı kullanacaksan:\nNVIDIA_API_KEY=kendi_anahtarin\nGEMINI_API_KEY=kendi_anahtarin"
+  }
+  label=".ENV ÖRNEĞİ"
+/>
+
+</section>
+
+<section className="doc-section" id="gorsel">
+
+## Ekran analizi
+
+Ekran analizi Gemini bağlantısını kullanır. Ana sohbet sağlayıcın farklı olsa da ilgili Gemini yapılandırması gerekir. Ekran görüntüsü alma ile görüntüyü modele gönderme farklı işlemlerdir.
+
+</section>
+
+<section className="doc-section" id="hatalar">
+
+## Bağlantı kontrolü
+
+Anahtar hatasında seçili sağlayıcıyı, kota hatasında hesap limitlerini, ağ hatasında internet erişimini kontrol et. Arayüzden kaydedilen bağlantı yeniden hazırlanır; .env değişikliği için uygulamayı yeniden başlat.
+
+</section>

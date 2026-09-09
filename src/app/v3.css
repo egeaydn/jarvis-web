@@ -1,0 +1,130 @@
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary svg {
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: transform 0.25s;
+}
+.faq-item[open] summary svg {
+  transform: rotate(45deg);
+}
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.desktop-preview {
+  margin: 52px 0 30px;
+  min-width: 0;
+}
+.desktop-preview-heading,
+.desktop-preview figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.preview-motion {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: #afb8aa;
+  background: transparent;
+  border: 1px solid #343c30;
+  border-radius: 100px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.preview-motion:disabled {
+  cursor: default;
+}
+.desktop-perspective {
+  perspective: 1800px;
+  padding: 40px 4% 35px;
+  background: radial-gradient(ellipse at center, #d3f5b312, transparent 65%);
+}
+.desktop-angle {
+  max-width: 1000px;
+  margin: auto;
+  transform-style: preserve-3d;
+}
+.desktop-screen {
+  display: block;
+  border: 1px solid #61734c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    12px 18px 0 -8px #20271b,
+    0 40px 75px #0008;
+  animation: desktop-float 7s ease-in-out infinite;
+}
+.desktop-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.desktop-preview figcaption {
+  color: #a7afa3;
+  font-size: 14px;
+}
+.desktop-preview figcaption a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #d3f5b3;
+}
+.concept-section {
+  padding-block: 48px 80px;
+}
+.concept-section > .eyebrow {
+  display: block;
+  margin-bottom: 24px;
+}
+.release-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 18px;
+}
+@keyframes desktop-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@media (max-width: 760px) {
+  .desktop-preview {
+    margin-top: 30px;
+  }
+  .desktop-preview-heading,
+  .desktop-preview figcaption {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .desktop-perspective {
+    padding: 30px 2% 25px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desktop-screen {
+    animation: none;
+  }
+  .desktop-angle {
+    transform: none !important;
+  }
+}

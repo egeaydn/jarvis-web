@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "baslangic",
+    "title": "Jarvis ile tanış",
+    "description": "Jarvis nedir, ne yapar ve nasıl kullanılır? Windows için Türkçe masaüstü asistanını, API gereksinimlerini ve ilk komut adımlarını tanı.",
+    "updatedAt": "2026-09-09",
+    "group": "Başlarken",
+    "time": "3 dk",
+    "order": 0
+  },
+  {
+    "slug": "kurulum",
+    "title": "Windows kurulumu",
+    "description": "Jarvis Windows x64 beta EXE kurulumu, ilk açılış ve Groq API bağlantısı. Python gerektirmeyen paket ve kaynak koddan kurulum adımları.",
+    "updatedAt": "2026-09-09",
+    "group": "Başlarken",
+    "time": "5 dk",
+    "order": 1
+  },
+  {
+    "slug": "saglayicilar",
+    "title": "AI sağlayıcıları",
+    "description": "Jarvis için Groq, NVIDIA veya Gemini API anahtarını yapılandır. Varsayılan sağlayıcı, ekran analizi gereksinimleri ve bağlantı sorunları.",
+    "updatedAt": "2026-09-09",
+    "group": "Başlarken",
+    "time": "4 dk",
+    "order": 2
+  },
+  {
+    "slug": "sesli-kullanim",
+    "title": "Sesli kullanım",
+    "description": "Mikrofon, uyandırma kelimesi ve sesli yanıtlar.",
+    "updatedAt": "2026-09-09",
+    "group": "Kullanım",
+    "time": "4 dk",
+    "order": 3
+  },
+  {
+    "slug": "komutlar",
+    "title": "Komut rehberi",
+    "description": "Günlük işlerine uyarlayabileceğin örnek istekler.",
+    "updatedAt": "2026-09-09",
+    "group": "Kullanım",
+    "time": "4 dk",
+    "order": 4
+  },
+  {
+    "slug": "gizlilik",
+    "title": "Gizlilik ve kontrol",
+    "description": "Hangi veri nerede işlenir? Kontrollerini tanı.",
+    "updatedAt": "2026-09-09",
+    "group": "Kullanım",
+    "time": "5 dk",
+    "order": 5
+  },
+  {
+    "slug": "sorun-giderme",
+    "title": "Sorun giderme",
+    "description": "Bağlantı, açılış ve ses sorunları için kontrol adımları.",
+    "updatedAt": "2026-09-09",
+    "group": "Yardım",
+    "time": "5 dk",
+    "order": 6
+  },
+  {
+    "slug": "guncellemeler",
+    "title": "Sürümler ve güncelleme",
+    "description": "Yayın durumunu ve güncelleme yaklaşımını takip et.",
+    "updatedAt": "2026-09-09",
+    "group": "Yardım",
+    "time": "2 dk",
+    "order": 7
+  }
+]

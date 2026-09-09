@@ -1,3 +1,4 @@
+import bundledRelease from "./bundled-release.json";
 export type Release = {
   url: string;
   version: string;
@@ -8,10 +9,17 @@ export type Release = {
   platform: string;
 };
 /** An incomplete release is never presented as a downloadable artifact. */
-export function parseRelease(env: Record<string, string | undefined>): Release | null {
+export function parseRelease(
+  env: Record<string, string | undefined>,
+  allowBundled = false,
+): Release | null {
   if (env.JARVIS_RELEASE_PUBLISHED !== "true") return null;
   try {
-    const url = new URL(env.JARVIS_DOWNLOAD_URL || "");
+    const rawUrl = env.JARVIS_DOWNLOAD_URL || "";
+    const local =
+      allowBundled &&
+      /^\/downloads\/Jarvis-\d+\.\d+\.\d+(?:-[a-zA-Z0-9.-]+)?-windows-x64\.exe$/.test(rawUrl);
+    const url = new URL(rawUrl, local ? "https://local.invalid" : undefined);
     const allowed = (env.JARVIS_DOWNLOAD_HOSTS || "github.com,objects.githubusercontent.com")
       .split(",")
       .map((host) => host.trim().toLowerCase())
@@ -26,7 +34,7 @@ export function parseRelease(env: Record<string, string | undefined>): Release |
       url.protocol !== "https:" ||
       url.username ||
       url.password ||
-      !allowed.includes(url.hostname) ||
+      (!local && !allowed.includes(url.hostname)) ||
       !/^\d+\.\d+\.\d+(?:-[a-zA-Z0-9.-]+)?$/.test(version) ||
       !/^[a-fA-F0-9]{64}$/.test(sha256) ||
       !Number.isSafeInteger(sizeBytes) ||
@@ -38,11 +46,20 @@ export function parseRelease(env: Record<string, string | undefined>): Release |
       !platform
     )
       return null;
-    return { url: url.href, version, sha256, sizeBytes, publishedAt, publisher, platform };
+    return {
+      url: local ? rawUrl : url.href,
+      version,
+      sha256,
+      sizeBytes,
+      publishedAt,
+      publisher,
+      platform,
+    };
   } catch {
     return null;
   }
 }
 export function getRelease() {
-  return parseRelease(process.env);
+  if (process.env.JARVIS_RELEASE_PUBLISHED !== undefined) return parseRelease(process.env);
+  return parseRelease(bundledRelease, true);
 }

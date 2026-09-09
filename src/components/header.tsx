@@ -8,7 +8,7 @@ import { BrandMark } from "./brand";
 import { DocsSearch } from "./docs-search";
 const links = [
   { href: "/#ozellikler", label: "Yetenekler" },
-  { href: "/#nasil-calisir", label: "Nasıl çalışır?" },
+  { href: "/commands", label: "Komutlar" },
   { href: "/docs/baslangic", label: "Dokümantasyon" },
 ];
 export function Header() {

@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
+import { seoSettings } from "@/lib/seo";
 export default function robots(): MetadataRoute.Robots {
-  const base = process.env.NEXT_PUBLIC_SITE_URL;
-  const indexable = process.env.SITE_INDEXABLE === "true" && !!base;
+  const { origin, indexable } = seoSettings();
   return {
     rules: { userAgent: "*", ...(indexable ? { allow: "/" } : { disallow: "/" }) },
-    ...(indexable ? { sitemap: `${base?.replace(/\/$/, "")}/sitemap.xml` } : {}),
+    ...(indexable ? { sitemap: `${origin}/sitemap.xml` } : {}),
   };
 }

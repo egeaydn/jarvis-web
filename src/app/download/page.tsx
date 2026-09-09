@@ -12,14 +12,41 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { getRelease } from "@/lib/release";
-export const metadata: Metadata = {
-  title: "Windows için indir",
-  description: "Jarvis Windows dağıtımı, sürüm bilgileri, gereksinimler ve kurulum rehberi.",
-};
+import { JsonLd } from "@/components/json-ld";
+import { absoluteSiteUrl, pageMetadata, siteDescription } from "@/lib/seo";
+export const metadata: Metadata = pageMetadata(
+  "/download",
+  "Jarvis indir — Windows x64 beta",
+  "Jarvis Windows x64 beta EXE’sini indir. Dosya boyutu, SHA-256 doğrulaması, API anahtarı gereksinimleri ve kurulum rehberi.",
+);
 export default function DownloadPage() {
   const release = getRelease();
   return (
     <main id="main" className="container">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Jarvis",
+          alternateName: "Ege Assistant",
+          description: siteDescription,
+          operatingSystem: "Windows x64",
+          applicationCategory: "UtilitiesApplication",
+          inLanguage: "tr-TR",
+          isAccessibleForFree: true,
+          author: { "@type": "Person", name: "Ege Aydın" },
+          url: absoluteSiteUrl("/download"),
+          ...(release
+            ? {
+                softwareVersion: release.version,
+                fileSize: `${release.sizeBytes} bytes`,
+                downloadUrl: release.url.startsWith("/")
+                  ? absoluteSiteUrl(release.url)
+                  : release.url,
+              }
+            : {}),
+        }}
+      />
       <Reveal className="page-intro centered">
         <span className="eyebrow">YENİ BİR ÇALIŞMA BİÇİMİ</span>
         <h1>
@@ -48,13 +75,18 @@ export default function DownloadPage() {
             </span>
           </div>
           <h2>Jarvis for Windows</h2>
+          <p className="status-label">ÜCRETSİZ BETA · KENDİ API ANAHTARINLA</p>
           <p>
             {release
-              ? "Yayımlanmış sürümü indir. Başlamadan önce platform gereksinimlerini ve kurulum adımlarını incele."
-              : "İlk herkese açık sürüm için son hazırlıklar. Kurulum ve dosya doğrulamaları tamamlandığında buradan indirebileceksin."}
+              ? "Tek dosyalık beta uygulamasını indir; Python kurmadan başla. AI kullanım limitleri ve ücretleri kendi sağlayıcı hesabına bağlıdır."
+              : "Önce web deneyimini geliştiriyoruz. Ücretsiz beta paketi hazır olup doğrulandığında buradan indirebileceksin. AI sağlayıcının ücretleri ve kotaları kendi hesabına bağlıdır."}
           </p>
           {release ? (
-            <a className="button button-primary" href={release.url}>
+            <a
+              className="button button-primary"
+              href={release.url}
+              download={release.url.startsWith("/")}
+            >
               <Download size={17} /> Windows için indir <ArrowUpRight size={17} />
             </a>
           ) : (
@@ -64,7 +96,7 @@ export default function DownloadPage() {
           )}
           <p className="download-note">
             {release
-              ? "Dosya resmi dağıtım adresinden indirilir."
+              ? "İndirdikten sonra EXE’yi aç ve Ayarlar ve AI bağlantısı bölümünden kendi anahtarını ekle."
               : "Henüz doğrulanmış bir dağıtım paketi yayımlanmadı."}
           </p>
           <dl className="download-facts">
@@ -106,6 +138,16 @@ export default function DownloadPage() {
             <div className="notice">
               <strong>SHA-256</strong>
               <p className="hash-code">{release.sha256}</p>
+              {release.url.startsWith("/downloads/") && (
+                <div className="release-links">
+                  <a className="text-link" href={`${release.url}.sha256`} download>
+                    Doğrulama dosyasını indir
+                  </a>
+                  <Link className="text-link" href="/docs/guncellemeler#dogrulama">
+                    Nasıl doğrulanır?
+                  </Link>
+                </div>
+              )}
             </div>
           )}
         </Reveal>
@@ -115,12 +157,12 @@ export default function DownloadPage() {
             {
               icon: Monitor,
               title: "Windows bilgisayar",
-              text: "İlk dağıtım Windows için hazırlanıyor. Kesin sistem gereksinimleri paketle birlikte açıklanacak.",
+              text: "64 bit Windows için beta. Açılış mevcut geliştirme bilgisayarında doğrulandı; temiz Windows kurulumu ve farklı cihaz testleri henüz tamamlanmadı.",
             },
             {
               icon: KeyRound,
               title: "Bir AI bağlantısı",
-              text: "NVIDIA, Groq veya Gemini hesabın ve API anahtarın. Kullanım limitleri sağlayıcına bağlı.",
+              text: "Varsayılan Groq; NVIDIA ve Gemini de seçilebilir. Anahtarını masaüstü uygulamasına gir; siteye gönderilmez.",
             },
             {
               icon: Mic,
@@ -149,6 +191,15 @@ export default function DownloadPage() {
               inceleyebilirsin.
             </p>
           </div>
+          {release?.url.startsWith("/downloads/") && (
+            <div className="notice">
+              <strong>Kod imzası bulunmayan beta</strong>
+              <p>
+                Bu EXE henüz dijital olarak imzalanmadı. Windows yayıncıyı doğrulayamayabilir.
+                SHA-256 yalnızca dosya bütünlüğünü kontrol eder; kod imzasının yerini tutmaz.
+              </p>
+            </div>
+          )}
         </Reveal>
       </div>
     </main>

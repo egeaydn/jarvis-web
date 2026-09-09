@@ -2,17 +2,20 @@ import type { Metadata } from "next";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
+import "./v2.css";
+import "./v3.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { MotionProvider } from "@/components/motion-provider";
+import { seoSettings, siteDescription } from "@/lib/seo";
+const seo = seoSettings();
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(seo.origin || "http://localhost:3000"),
   title: { default: "Jarvis — Bilgisayarınla aynı dili konuş.", template: "%s · Jarvis" },
-  description:
-    "Windows için Türkçe yapay zekâ asistanı. Uygulamalarını aç, dosyalarını yönet, günlük işlerini sesinle veya yazarak başlat.",
+  description: siteDescription,
   applicationName: "Jarvis",
   robots: {
-    index: process.env.SITE_INDEXABLE === "true" && !!process.env.NEXT_PUBLIC_SITE_URL,
+    index: seo.indexable,
     follow: true,
   },
   openGraph: {
@@ -24,6 +27,12 @@ export const metadata: Metadata = {
       "Daha az tıkla. Daha fazlasını yap. Windows için Türkçe masaüstü asistanını keşfet.",
   },
   twitter: { card: "summary_large_image" },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -38,7 +47,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </MotionProvider>
         <noscript>
-          <style>{"[data-reveal] { opacity: 1 !important; transform: none !important; }"}</style>
+          <style>
+            {
+              "[data-reveal] { opacity: 1 !important; transform: none !important; } .reactor-track { height: auto; } .reactor-sticky { position: relative; top: 0; } .reactor-copy button { display: none; }"
+            }
+          </style>
         </noscript>
       </body>
     </html>

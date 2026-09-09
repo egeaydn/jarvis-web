@@ -1,0 +1,48 @@
+import { CopyCode } from "@/components/copy-code";
+
+<section className="doc-section" id="nedir">
+
+## Jarvis nedir?
+
+Jarvis (Ege Assistant), Ege Aydın tarafından geliştirilen Windows için Türkçe bir masaüstü yapay zekâ asistanıdır. Bir isteği yazabilir veya mikrofonla söyleyebilirsin. Jarvis uygun araçları seçerek uygulama açma, dosya bulma ve not alma gibi işlemleri gerçekleştirir.
+
+Beta uygulaması ücretsizdir ve kendi AI sağlayıcı hesabınla çalışır. Varsayılan sağlayıcı Groq’tur; NVIDIA ve Gemini de seçilebilir. API kullanım ücretleri ve kotaları sağlayıcı hesabına bağlıdır.
+
+Bu sitedeki etkileşimli önizleme örnek senaryolar gösterir; bilgisayarında işlem yapmaz.
+
+Jarvis tamamen çevrimdışı değildir: model yanıtları ve Google üzerinden konuşma tanıma internet gerektirir; ekran analizi Gemini kullanır. Ayrıntılar için [veri ve gizlilik rehberini](/docs/gizlilik) oku.
+
+</section>
+
+<section className="doc-section" id="gerekenler">
+
+## Başlamadan önce
+
+Windows bilgisayar, internet bağlantısı ve desteklenen model sağlayıcılarından birine ait API anahtarı gerekir. Sesli kullanım için mikrofon gerekir; yazılı kullanım da mevcuttur.
+
+Beta paketinin bulunabilirliğini, sürümünü ve doğrulama bilgilerini indirme merkezinden kontrol et. İlk bağlantıyı masaüstündeki Ayarlar ve AI bağlantısı bölümünden yap; varsayılan sağlayıcı Groq’tur.
+
+</section>
+
+<section className="doc-section" id="ilk-komut">
+
+## Küçük bir istekle başla
+
+Kolayca doğrulayabileceğin bir komut dene. Sonucu uygulamanın yanıtından ve bilgisayarındaki değişiklikten kontrol et.
+
+<CopyCode
+  code={
+    "Sistem bilgilerimi göster.\nBir not al: yarın proje taslağını gözden geçir.\nHesap makinesini aç."
+  }
+  label="ÖRNEK KOMUTLAR"
+/>
+
+</section>
+
+<section className="doc-section" id="kontrol">
+
+## Kontrol sende
+
+Dosya silme, terminal komutu ve bazı sistem işlemleri için onay mekanizması vardır. Gösterilen işlemi kontrol ederek karar ver. Karmaşık istekleri küçük adımlara ayırmak sonucu takip etmeyi kolaylaştırır.
+
+</section>

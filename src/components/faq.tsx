@@ -1,15 +1,20 @@
-"use client";
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { Plus } from "lucide-react";
 const questions = [
   [
+    "Jarvis’i Merhaba diyerek nasıl açarım?",
+    "Masaüstü uygulamasında Ayarlar ve AI bağlantısı bölümünden arka plan dinlemesini aç. MERHABA DE · DİNLİYOR yazısını gördüğünde pencereyi tepsiye gizle ve merhaba de. Uyandırma için uygulamanın arka planda çalışması, mikrofon erişimi ve STT akışında internet gerekir.",
+  ],
+  [
+    "Jarvis ücretli mi?",
+    "Beta uygulaması ücretsizdir. Kendi AI sağlayıcının API anahtarını kullanırsın; sağlayıcının kullanım ücretleri ve kotaları kendi hesabına bağlıdır.",
+  ],
+  [
     "Jarvis hangi bilgisayarlarda çalışıyor?",
-    "Jarvis Windows için geliştiriliyor. Halka açık paketle birlikte doğrulanmış Windows sürümleri ve donanım gereksinimleri indirme merkezinde paylaşılacak. macOS ve Linux paketi şu anda sunulmuyor.",
+    "Mevcut beta Windows x64 içindir. Açılış geliştirme bilgisayarında doğrulandı; temiz Windows kurulumu ve farklı cihaz testleri henüz tamamlanmadı. macOS ve Linux paketi sunulmuyor.",
   ],
   [
     "Kullanmak için API anahtarı gerekiyor mu?",
-    "Mevcut uygulama kendi NVIDIA, Groq veya Gemini API anahtarınla çalışıyor. Sağlayıcı kullanım ücretleri ve limitleri hesabına bağlı. Ekran analizi için ayrıca Gemini bağlantısı gerekiyor.",
+    "Evet. Varsayılan sağlayıcı Groq’tur; NVIDIA ve Gemini de seçilebilir. Anahtarını masaüstü uygulamasındaki Ayarlar ve AI bağlantısı bölümüne girersin. Sağlayıcı ücretleri ve limitleri hesabına bağlıdır. Ekran analizi ayrıca Gemini bağlantısı gerektirir.",
   ],
   [
     "Jarvis tamamen çevrimdışı çalışıyor mu?",
@@ -21,39 +26,20 @@ const questions = [
   ],
   [
     "Uygulamayı şimdi indirebilir miyim?",
-    "Halka açık dağıtım paketi hazırlanıyor. Doğrulanmış dosya yayımlandığında indirme merkezi üzerinden erişebileceksin. Kaynak koduna sahipsen geliştirme kurulumu belgelerini şimdiden okuyabilirsin.",
+    "İndirme merkezinde güncel beta dosyasının bulunabilirliğini, boyutunu, sürümünü ve SHA-256 bilgisini görebilirsin. EXE’yi açtıktan sonra kendi API anahtarını masaüstü uygulamasına ekle.",
   ],
 ];
 export function FAQ() {
-  const [active, setActive] = useState<number | null>(null);
   return (
     <div className="faq-list">
-      {questions.map(([question, answer], index) => (
-        <div className={`faq-item ${active === index ? "open" : ""}`} key={question}>
-          <h3>
-            <button
-              onClick={() => setActive(active === index ? null : index)}
-              aria-expanded={active === index}
-              aria-controls={active === index ? `faq-${index}` : undefined}
-            >
-              {question}
-              <Plus size={20} />
-            </button>
-          </h3>
-          <AnimatePresence initial={false}>
-            {active === index && (
-              <motion.div
-                id={`faq-${index}`}
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.25 }}
-              >
-                <p>{answer}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+      {questions.map(([question, answer]) => (
+        <details className="faq-item" name="jarvis-faq" key={question}>
+          <summary>
+            {question}
+            <Plus size={20} aria-hidden="true" />
+          </summary>
+          <p>{answer}</p>
+        </details>
       ))}
     </div>
   );

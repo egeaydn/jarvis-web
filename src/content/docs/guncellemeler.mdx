@@ -1,0 +1,29 @@
+import { CopyCode } from "@/components/copy-code";
+
+<section className="doc-section" id="durum">
+
+## Beta dağıtımı
+
+Beta EXE’sinin güncel durumunu indirme merkezinden kontrol et. Web sitesi v0.3 ve masaüstü 0.1.0-beta.1 ayrı sürümlerdir. Mevcut beta Groq varsayılanını, mint/grafit arayüzü ve kalıcı mikrofon tercihini içerir.
+
+</section>
+
+<section className="doc-section" id="dogrulama">
+
+## Doğru dosyayı seç
+
+Sürüm, platform ve yayıncı bilgilerini incele. SHA-256 dosya bütünlüğünü kontrol eder; yayıncı kimliğini doğrulayan kod imzasından farklıdır.
+
+İndirilen dosyanın bulunduğu klasörde PowerShell ile aşağıdaki komutu çalıştır. Hash değerini indirme sayfasındaki SHA-256 ile karşılaştır; aynı olmalıdır.
+
+<CopyCode code={'Get-FileHash .\\Jarvis-0.1.0-beta.1-windows-x64.exe -Algorithm SHA256'} label="POWERSHELL" />
+
+</section>
+
+<section className="doc-section" id="yukseltme">
+
+## Güncellemeden önce
+
+Sürüm notlarını oku. Tepsi menüsünden Jarvis’ten çık, yeni EXE’yi ayrı bir klasöre indir ve aç. Önceki dosyayı doğrulamadan silme. Kişisel veriler EXE’nin yanında değil, %LOCALAPPDATA%\\EgeAssistant\\Jarvis içinde tutulur; güncellemeden önce bu klasörün yedeğini alabilirsin. Anahtar şifrelemesi Windows hesabına bağlıdır; başka bilgisayara taşındığında anahtarını yeniden girmen gerekebilir. Otomatik güncelleme henüz yoktur.
+
+</section>

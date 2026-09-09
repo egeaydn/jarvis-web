@@ -20,6 +20,16 @@ import { Reveal } from "@/components/reveal";
 import { Orbit } from "@/components/orbit";
 import { AssistantDemo } from "@/components/assistant-demo";
 import { FAQ } from "@/components/faq";
+import { Reactor } from "@/components/reactor";
+import { DesktopPreview } from "@/components/desktop-preview";
+import { JsonLd } from "@/components/json-ld";
+import { absoluteSiteUrl, pageMetadata, siteDescription } from "@/lib/seo";
+
+export const metadata = pageMetadata(
+  "/",
+  "Jarvis — Windows için Türkçe yapay zekâ asistanı",
+  siteDescription,
+);
 
 const features = [
   {
@@ -79,6 +89,18 @@ const features = [
 export default function Home() {
   return (
     <main id="main">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Jarvis",
+          alternateName: "Ege Assistant",
+          url: absoluteSiteUrl("/"),
+          description: siteDescription,
+          inLanguage: "tr-TR",
+          publisher: { "@type": "Person", name: "Ege Aydın" },
+        }}
+      />
       <section className="hero container">
         <div className="hero-main">
           <Reveal className="hero-copy">
@@ -93,7 +115,7 @@ export default function Home() {
               <em>yap.</em>
             </h1>
             <p className="hero-description">
-              Bilgisayarın için yeni bir alışkanlık.
+              Windows için Türkçe yapay zekâ asistanın.
               <br />
               Uygulamalarını aç, dosyalarına ulaş, aklındakini söyle.
               <br className="desktop-break" /> Gerisini Jarvis’le birlikte hallet.
@@ -117,7 +139,7 @@ export default function Home() {
           <Orbit />
         </div>
         <Reveal delay={0.15}>
-          <AssistantDemo />
+          <DesktopPreview />
         </Reveal>
         <div className="hero-bottom">
           <span>BİR ASİSTANDAN DAHA FAZLASI. YENİ BİR ÇALIŞMA BİÇİMİ.</span>
@@ -125,6 +147,11 @@ export default function Home() {
             <ArrowDown size={16} />
           </a>
         </div>
+      </section>
+      <Reactor />
+      <section className="container concept-section" aria-label="Örnek komut deneyimi">
+        <span className="eyebrow">BİR KOMUTUN YOLCULUĞU · ETKİLEŞİMLİ DEMO</span>
+        <AssistantDemo />
       </section>
       <section className="features-section section" id="ozellikler">
         <div className="container">

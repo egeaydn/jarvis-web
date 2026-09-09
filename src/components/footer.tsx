@@ -28,7 +28,7 @@ export function Footer() {
           <div>
             <span className="eyebrow">ÖĞREN</span>
             <Link href="/docs/baslangic">Dokümantasyon</Link>
-            <Link href="/docs/komutlar">Komut rehberi</Link>
+            <Link href="/commands">Komut kataloğu</Link>
             <Link href="/support">
               Yardım merkezi <ArrowUpRight size={12} />
             </Link>
@@ -42,7 +42,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} Jarvis · Ege Assistant</span>
+        <span>© {new Date().getFullYear()} Jarvis · Ege Aydın / Ege Assistant</span>
         <span className="footer-signoff">
           <i /> Türkçe düşün. Doğal konuş.
         </span>

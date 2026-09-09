@@ -1,0 +1,37 @@
+import { CopyCode } from "@/components/copy-code";
+
+<section className="doc-section" id="veri">
+
+## Model bağlantısı
+
+Sohbet istekleri ve araç sonuçları seçili sağlayıcıya gönderilebilir. Sonuçlarda dosya adları, yollar veya içerik bulunabilir. Jarvis'in bütün işlevleri çevrimdışı çalışmaz.
+
+</section>
+
+<section className="doc-section" id="ses">
+
+## Ses ve ekran
+
+Konuşma tanıma Google üzerinden, ekran analizi Gemini üzerinden çalışır. STT tabanlı uyandırmada da ses dış servise gönderilebilir.
+
+Web sitesindeki demo ses kaydetmez, ekranını okumaz ve bilgisayarında komut yürütmez.
+
+</section>
+
+<section className="doc-section" id="yerel">
+
+## Yerel kayıtlar
+
+Paketlenmiş uygulama sohbet, araç, not ve hatırlatıcı kayıtlarını Windows kullanıcı klasöründeki **%LOCALAPPDATA%\\EgeAssistant\\Jarvis** dizininde saklayabilir. Kaynak koddan çalıştırmada data dizini kullanılır.
+
+Pano geçmişi ve arka plan mikrofonu yeni kurulumda kapalıdır; Ayarlar bölümünden açılabilir. API anahtarları Windows kullanıcı hesabına bağlı şifrelemeyle kaydedilir. İndirilen EXE kişisel API anahtarlarını veya geliştiricinin sohbet geçmişini içermez. “Sohbeti temizle” ekranı temizler; diskteki bütün kayıtları sildiği anlamına gelmez.
+
+</section>
+
+<section className="doc-section" id="onay">
+
+## İşlem onayları
+
+Dosya silme, terminal, kayıt defteri ve bazı sistem işlemlerinde onay katmanı bulunur. Gösterilen işlemi incele. Reddedilen bir işlemin yürütülmesi hata olarak ele alınmalıdır.
+
+</section>

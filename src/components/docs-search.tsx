@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, FileText, Search, X } from "lucide-react";
-import { searchDocs } from "@/lib/docs";
+import { searchDocs, normalizeSearch } from "@/lib/docs";
 export function DocsSearch() {
   const dialog = useRef<HTMLDialogElement>(null);
   const [query, setQuery] = useState("");
@@ -62,21 +62,37 @@ export function DocsSearch() {
               {results.length} sonuç bulundu
             </span>
             {results.length ? (
-              results.map((doc) => (
-                <Link
-                  href={`/docs/${doc.slug}`}
-                  key={doc.slug}
-                  onClick={() => dialog.current?.close()}
-                  className="search-result"
-                >
-                  <FileText size={19} />
-                  <span>
-                    <strong>{doc.title}</strong>
-                    <small>{doc.description}</small>
-                  </span>
-                  <ArrowUpRight size={17} />
-                </Link>
-              ))
+              results.map((doc) => {
+                const terms = normalizeSearch(query).trim().split(/\s+/).filter(Boolean);
+                const titleMatch = terms.every((term) => normalizeSearch(doc.title).includes(term));
+                const section =
+                  !titleMatch && terms.length
+                    ? doc.sections.find((s) =>
+                        terms.every((term) =>
+                          normalizeSearch(`${s.title} ${s.body.join(" ")}`).includes(term),
+                        ),
+                      )
+                    : undefined;
+                return (
+                  <Link
+                    href={`/docs/${doc.slug}${section ? `#${section.id}` : ""}`}
+                    key={doc.slug}
+                    onClick={() => dialog.current?.close()}
+                    className="search-result"
+                  >
+                    <FileText size={19} />
+                    <span>
+                      <strong>{doc.title}</strong>
+                      <small>
+                        {section
+                          ? `${section.title} — ${section.body.join(" ").replace(/\s+/g, " ").slice(0, 130)}…`
+                          : doc.description}
+                      </small>
+                    </span>
+                    <ArrowUpRight size={17} />
+                  </Link>
+                );
+              })
             ) : (
               <p className="search-empty">
                 Sonuç bulunamadı. “Mikrofon”, “API” veya “kurulum” ile tekrar deneyebilirsin.

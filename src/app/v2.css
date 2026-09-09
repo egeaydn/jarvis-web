@@ -1,0 +1,449 @@
+html[data-docs-theme="light"] .doc-section p,
+html[data-docs-theme="light"] .doc-nav-link,
+html[data-docs-theme="light"] .doc-breadcrumb,
+html[data-docs-theme="light"] .doc-meta,
+html[data-docs-theme="light"] .doc-toc a,
+html[data-docs-theme="light"] .doc-toc > p,
+html[data-docs-theme="light"] .doc-group > p,
+html[data-docs-theme="light"] .toc-help span,
+html[data-docs-theme="light"] .doc-pagination small,
+html[data-docs-theme="light"] .doc-end-note,
+html[data-docs-theme="light"] .code-head,
+html[data-docs-theme="light"] .copy-button,
+html[data-docs-theme="light"] .footer-links > div,
+html[data-docs-theme="light"] .footer-links .eyebrow,
+html[data-docs-theme="light"] .footer-bottom,
+html[data-docs-theme="light"] .desktop-nav a {
+  color: var(--muted);
+}
+html[data-docs-theme="light"] .site-footer,
+html[data-docs-theme="light"] .search-dialog,
+html[data-docs-theme="light"] .doc-mobile-nav {
+  background: var(--surface);
+}
+html[data-docs-theme="light"] .copy-error {
+  color: #8b3e14;
+}
+@media (max-width: 600px) {
+  .reactor-copy h2 em {
+    display: block;
+  }
+  .reactor-visual {
+    height: 36svh !important;
+    min-height: 220px !important;
+  }
+}
+.reactor-track {
+  height: 240vh;
+  border-block: 1px solid var(--line);
+  background: radial-gradient(ellipse at 76% 45%, #18221b66, transparent 58%);
+}
+.reactor-sticky {
+  position: sticky;
+  top: 83px;
+  height: calc(100svh - 83px);
+  min-height: 580px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.2fr;
+  align-items: center;
+  gap: 24px;
+}
+.reactor-copy {
+  padding-block: 35px;
+}
+.reactor-copy h2 {
+  font-size: clamp(36px, 3.8vw, 55px);
+  line-height: 1.14;
+  letter-spacing: -2px;
+  margin: 25px 0;
+}
+.reactor-copy h2 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: var(--accent);
+}
+.reactor-copy > p {
+  max-width: 350px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+.reactor-steps {
+  margin: 32px 0;
+  max-width: 350px;
+}
+.reactor-steps > div {
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--faint);
+  position: relative;
+  font-size: 15px;
+}
+.reactor-steps > div.selected {
+  color: var(--fg);
+}
+.reactor-steps span {
+  font: 10px var(--font-mono);
+  margin-right: 20px;
+  color: var(--accent);
+}
+.reactor-steps i {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: var(--accent);
+  bottom: -1px;
+  left: 0;
+  transform-origin: left;
+}
+.reactor-copy .reactor-caption {
+  font-size: 11px;
+  margin-bottom: 15px;
+}
+.reactor-copy button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.reactor-skip {
+  margin-left: 20px;
+}
+.reactor-visual {
+  position: relative;
+  height: min(620px, 70svh);
+  min-height: 350px;
+}
+.reactor-canvas,
+.reactor-fallback,
+.reactor-grid {
+  position: absolute;
+  inset: 0;
+}
+.reactor-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.reactor-grid {
+  background-image:
+    linear-gradient(#cceab307 1px, transparent 1px),
+    linear-gradient(90deg, #cceab307 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse, black, transparent 70%);
+}
+.reactor-fallback {
+  display: grid;
+  place-items: center;
+}
+.reactor-fallback .orbit-scene {
+  display: block;
+  width: min(100%, 450px);
+}
+.reactor-coordinate,
+.reactor-state {
+  position: absolute;
+  font: 10px var(--font-mono);
+  color: var(--muted);
+  letter-spacing: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.reactor-coordinate {
+  top: 20px;
+}
+.reactor-state {
+  bottom: 20px;
+  color: var(--accent);
+}
+.reactor-static {
+  height: auto;
+}
+.reactor-static .reactor-sticky {
+  position: relative;
+  top: 0;
+}
+.command-catalog {
+  padding: 35px 0 100px;
+}
+.catalog-search {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 20px;
+  color: var(--accent);
+}
+.catalog-search:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.catalog-search input {
+  width: 100%;
+  min-width: 0;
+  background: none;
+  color: var(--fg);
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 15px;
+}
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 24px 0;
+}
+.catalog-filters button {
+  font: inherit;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  padding: 9px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.catalog-filters button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #14200f;
+  border-color: var(--accent);
+}
+.catalog-count {
+  font: 11px var(--font-mono);
+  color: var(--muted);
+  margin: 25px 0;
+  line-height: 1.8;
+}
+.command-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.command-card {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.command-card h2 {
+  font-size: 22px;
+  letter-spacing: -0.7px;
+  margin: 20px 0 10px;
+}
+.command-card p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.command-card .code-block {
+  width: 100%;
+  margin-block: 20px;
+}
+.command-card .code-block pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.command-requirement {
+  margin-top: auto;
+}
+.command-requirement strong {
+  display: block;
+  font-size: 11px;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+.command-card .text-link {
+  margin-top: 20px;
+}
+.catalog-empty {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 50px 25px;
+  text-align: center;
+}
+.catalog-empty p {
+  color: var(--muted);
+  margin: 15px 0 25px;
+}
+.docs-theme-toggle {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 9px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  margin-top: 20px;
+}
+.theme-moon {
+  display: none;
+}
+html[data-docs-theme="light"] .theme-sun {
+  display: none;
+}
+html[data-docs-theme="light"] .theme-moon {
+  display: inline-flex;
+}
+html[data-docs-theme="light"]:has(.docs-layout) {
+  --bg: #f6f7f2;
+  --surface: #fff;
+  --surface-2: #ebeee7;
+  --fg: #1b271c;
+  --muted: #50604f;
+  --faint: #627061;
+  --line: #d4ddcf;
+  --accent: #426527;
+  --accent-dark: #e4eddc;
+  background: var(--bg);
+  color-scheme: light;
+}
+html[data-docs-theme="light"] .site-header {
+  background: #f6f7f2f2;
+}
+html[data-docs-theme="light"] .code-block {
+  background: #edf0e9;
+}
+html[data-docs-theme="light"] .code-block pre {
+  color: #23341e;
+}
+html[data-docs-theme="light"] .notice {
+  background: #e9f0e1;
+  color: #354a2a;
+}
+html[data-docs-theme="light"] .doc-nav-link.active {
+  background: #e5eddc;
+}
+@media (max-width: 800px) {
+  .reactor-sticky {
+    top: 70px;
+    grid-template-columns: 1fr 1.05fr;
+    min-height: 560px;
+  }
+  .reactor-copy h2 {
+    font-size: 36px;
+  }
+  .reactor-skip {
+    display: flex;
+    margin: 16px 0 0;
+  }
+  .reactor-visual {
+    min-height: 300px;
+  }
+  .command-card {
+    padding: 22px;
+  }
+}
+@media (max-width: 600px) {
+  .reactor-track {
+    height: 210svh;
+  }
+  .reactor-static {
+    height: auto;
+  }
+  .reactor-sticky {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 0;
+    height: calc(100svh - 70px);
+    padding-block: 14px;
+    align-content: center;
+  }
+  .reactor-copy {
+    padding: 0;
+  }
+  .reactor-copy h2 {
+    font-size: 32px;
+    margin: 12px 0;
+  }
+  .reactor-copy h2 br {
+    display: none;
+  }
+  .reactor-copy > p {
+    font-size: 12px;
+    margin: 0;
+  }
+  .reactor-steps {
+    margin: 12px 0;
+  }
+  .reactor-steps > div {
+    padding: 8px 0;
+    font-size: 12px;
+  }
+  .reactor-copy .reactor-caption {
+    display: none;
+  }
+  .reactor-copy button,
+  .reactor-skip {
+    font-size: 11px;
+  }
+  .reactor-skip {
+    display: inline-flex;
+    margin: 12px 0 0 15px;
+  }
+  .reactor-visual {
+    height: 32svh;
+    min-height: 200px;
+  }
+  .reactor-coordinate {
+    display: none;
+  }
+  .reactor-state {
+    bottom: 0;
+    font-size: 8px;
+  }
+  .reactor-fallback .orbit-scene {
+    width: 230px;
+  }
+  .reactor-fallback .orbit-label {
+    display: none;
+  }
+  .command-grid {
+    grid-template-columns: 1fr;
+  }
+  .catalog-search {
+    padding: 16px;
+  }
+  .catalog-search input {
+    font-size: 13px;
+  }
+  .command-card h2 {
+    font-size: 20px;
+  }
+}
+@media (max-height: 680px) and (min-width: 601px) {
+  .reactor-sticky {
+    min-height: 0;
+  }
+  .reactor-copy h2 {
+    font-size: 32px;
+    margin: 12px 0;
+  }
+  .reactor-steps {
+    margin: 15px 0;
+  }
+  .reactor-steps > div {
+    padding: 10px 0;
+  }
+  .reactor-visual {
+    min-height: 250px;
+  }
+  .reactor-copy .reactor-caption {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reactor-track {
+    height: auto;
+  }
+  .reactor-sticky {
+    position: relative;
+    top: 0;
+  }
+}

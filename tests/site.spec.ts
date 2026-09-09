@@ -47,9 +47,9 @@ test("arama, klavye kapatma ve belgeye geçiş", async ({ page }) => {
   await expect(page.getByRole("dialog")).not.toBeVisible();
 });
 
-test("doğrulanmamış sürüm indirilebilir görünmez", async ({ page }) => {
+test("beta indirme ve kurulum rehberi", async ({ page }) => {
   await page.goto("/download");
-  await expect(page.getByRole("button", { name: "İndirme yakında açılacak" })).toBeDisabled();
+  await expect(page.getByRole("link", { name: "Windows için indir", exact: true })).toHaveAttribute("href", /\/downloads\/Jarvis-.*\.exe$/);
   await expect(page.getByRole("link", { name: "Kurulum rehberini oku" })).toBeVisible();
   await page.getByRole("link", { name: "Kurulum rehberini oku" }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Windows kurulumu");
