@@ -38,7 +38,7 @@ Yeni EXE hazırlamak için `npm run release:prepare -- <EXE-yolu> <masaüstü-s�
 
 `JARVIS_RELEASE_PUBLISHED` tanımlı değilse hazırlanan yerel paket kullanılır. `false` indirmeyi kapatır; `true` aşağıdaki HTTPS yayın yapılandırmasını seçer. Sitedeki dosyaları barındırmadan manifesti tek başına dağıtmayın. 128 MiB üzerindeki EXE için genel yayında büyük dosya destekleyen bir dağıtım alanı kullanın ve HTTPS yayın alanlarını güncelleyin.
 
-Alan adı, halka açık barındırma, kod imzası ve temiz Windows testi sonraki yayın adımlarıdır. Bu çalışma yerel önizlemeyi hazırlar; internete yayın yapmaz.
+Site Vercel üzerinde https://jarviss.website adresinde yayındadır. EXE, GitHub Releases içindeki `v0.1.0-beta.1` sürümünde barındırılır; `.gitignore` nedeniyle Git deposuna alınmaz. `next.config.ts`, mevcut `/downloads/Jarvis-0.1.0-beta.1-windows-x64.exe` adresini aynı dosyanın GitHub Releases adresine 307 ile yönlendirir. Manifest ve SHA-256 dosyası sitede kalır. Yeni sürüm yayımlarken önce EXE ve checksum dosyasını Releases'e yükleyip bütünlüğünü doğrulayın, ardından yeni sürüm için yönlendirmeyi ve manifesti birlikte güncelleyin. Önceki sürümlerin yönlendirmelerini koruyun. Kod imzası ve temiz Windows testi henüz tamamlanmadı.
 
 ### Gerçek kullanım videosu
 
