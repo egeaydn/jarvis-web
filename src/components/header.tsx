@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { BrandMark } from "./brand";
@@ -11,7 +11,9 @@ const links = [
   { href: "/commands", label: "Komutlar" },
   { href: "/docs/baslangic", label: "Dokümantasyon" },
 ];
+const subscribe = () => () => {};
 export function Header() {
+  const ready = useSyncExternalStore(subscribe, () => true, () => false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   return (
@@ -48,6 +50,7 @@ export function Header() {
           </Link>
           <button
             className="icon-button mobile-toggle"
+            disabled={!ready}
             aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={open}
             aria-controls={open ? "mobile-navigation" : undefined}

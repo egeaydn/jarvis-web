@@ -38,7 +38,13 @@ Yeni EXE hazırlamak için `npm run release:prepare -- <EXE-yolu> <masaüstü-s�
 
 `JARVIS_RELEASE_PUBLISHED` tanımlı değilse hazırlanan yerel paket kullanılır. `false` indirmeyi kapatır; `true` aşağıdaki HTTPS yayın yapılandırmasını seçer. Sitedeki dosyaları barındırmadan manifesti tek başına dağıtmayın. 128 MiB üzerindeki EXE için genel yayında büyük dosya destekleyen bir dağıtım alanı kullanın ve HTTPS yayın alanlarını güncelleyin.
 
-Alan adı, halka açık barındırma, kod imzası, temiz Windows testi ve gerçek tanıtım videosu sonraki yayın adımlarıdır. Bu çalışma yerel önizlemeyi hazırlar; internete yayın yapmaz.
+Alan adı, halka açık barındırma, kod imzası ve temiz Windows testi sonraki yayın adımlarıdır. Bu çalışma yerel önizlemeyi hazırlar; internete yayın yapmaz.
+
+### Gerçek kullanım videosu
+
+İki kullanıcı kaydı 59,83 saniyelik, 1280×960 H.264 videoya birleştirildi. Dosya yaklaşık 2,6 MB; ana sayfada `#kullanim-videosu` bölümündedir. Video otomatik başlamaz ve oynatılmadan indirilmez. Yerel MP4, poster ve Türkçe ekran açıklamaları `public/videos` içinde tutulur. Kayıtlar sessizdir; 2× / 3× hızlandırılmış bölümler ekranda belirtilir. Uygulama açma, sistem bilgileri ve ayarlar için bölüm düğmeleri ile yazılı açıklama vardır.
+
+Dağıtım EXE’si ayrı klasörde, boş ayarlar ve API anahtarı olmadan açıldı; ayarlar ekranı kullanılabilir ve mikrofon kapalıdır. Bu kontrol mevcut Windows üzerinde yapılmıştır, temiz Windows doğrulamasının yerini tutmaz. Destek taslağı mevcut beta sürümünü doldurur; kullanıcı farklı sürüm kullanıyorsa düzeltebilir.
 
 ### v0.2’den korunanlar
 
@@ -82,7 +88,7 @@ v0.3 yerel beta dosyasıyla indirmeyi açar. Dosya imzasının doğrulanması bu
 
 Yeni belge için MDX dosyası ve meta.json kaydı ekleyin. Her bölüm `<section className="doc-section" id="benzersiz-id">` içinde bir `## Başlık` içermeli; mevcut ID’leri koruyun. `npm run docs:index` aramayı ve kayıt dosyasını yeniler; dev/build başlangıcında otomatik çalışır. Geliştirme sırasında içerik düzenledikten sonra arama indeksini aynı komutla yenileyin. Üretilen docs-index.json ve registry.ts dosyalarını doğrudan düzenlemeyin. MDX yalnızca depodaki güvenilen yerel içerikten derlenir.
 
-Reaktör geometrisi `src/components/reactor.tsx`, v0.2 stilleri `src/app/v2.css` içinde. Yeni komutlar `src/lib/commands.ts` dosyasına eklenebilir. Gerçek video geldiğinde içerik alanına eklenecek; şu anki demo açıkça simülasyondur. Aktif analitik veya veri toplayan destek formu yoktur.
+Reaktör geometrisi `src/components/reactor.tsx`, v0.2 stilleri `src/app/v2.css` içinde. Yeni komutlar `src/lib/commands.ts` dosyasına eklenebilir. Gerçek kullanım videosu `src/components/product-video.tsx` içindedir; etkileşimli komut demosu ayrıca simülasyon olarak korunur. Aktif analitik veya veri toplayan destek formu yoktur.
 
 ## Production ayarları
 

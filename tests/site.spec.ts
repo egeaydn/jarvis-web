@@ -18,7 +18,7 @@ test("ana sayfa, senaryo geçişi ve mobil taşma", async ({ page }, info) => {
     viewport: window.innerWidth,
   }));
   expect(widths.content).toBeLessThanOrEqual(widths.viewport);
-  await page.getByRole("button", { name: "Jarvis tamamen çevrimdışı çalışıyor mu?" }).click();
+  await page.locator("summary").filter({ hasText: "Jarvis tamamen çevrimdışı çalışıyor mu?" }).click();
   await expect(page.getByText("Hayır. Model yanıtları", { exact: false })).toBeVisible();
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: info.outputPath("home.png"), fullPage: true });
