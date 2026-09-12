@@ -55,6 +55,13 @@
         ]
       },
       {
+        "id": "smartscreen",
+        "title": "Windows SmartScreen uyarısı",
+        "body": [
+          "“Windows kişisel bilgisayarınızı korudu” mesajı, SmartScreen’in uygulamayı yeterince tanımadığını belirtir. Jarvis beta 2 henüz dijital olarak imzalanmamıştır. Bu mesaj tek başına virüs tespiti anlamına gelmez; uygulamanın güvenli olduğuna dair bir garanti de değildir.\n\nDosyayı **jarviss.website** indirme sayfasından aldıysan ve kaynağa güveniyorsan, önce dosyanın SHA-256 değerini [güncelleme rehberindeki yöntemle](/docs/guncellemeler) karşılaştır. Değer uyuşmuyorsa dosyayı çalıştırma. Uyuşuyorsa ve devam etmeyi seçiyorsan bu SmartScreen ekranında **Ek bilgi → Yine de çalıştır** yolunu kullanabilirsin. Ardından yeni kullanıcılarda Jarvis’in kurulum sihirbazı açılır.\n\nBu işlem için Defender veya SmartScreen korumasını kapatman gerekmez. “Yine de çalıştır” seçeneği görünmüyorsa cihaz ilkesi devam etmeyi engelliyor olabilir. Belirli bir zararlı yazılım adı veya karantina bildirimi görüyorsan bu farklı bir durumdur; dosyayı çalıştırmadan destek iste.\n\nKalıcı dağıtım iyileştirmesi, sürümleri güvenilir bir kod imzalama sertifikasıyla imzalamaktır. Yeni imzalı uygulamalar da itibar oluşana kadar uyarı gösterebilir. ZIP/RAR paketlemek veya kurulum sihirbazı eklemek kod imzasının yerini tutmaz. Ayrıntılar: [Microsoft’un SmartScreen açıklaması](https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/smartscreen-reputation)."
+        ]
+      },
+      {
         "id": "ortam",
         "title": "Geliştirme ortamını hazırla",
         "body": [

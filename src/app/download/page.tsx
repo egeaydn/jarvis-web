@@ -198,6 +198,15 @@ export default function DownloadPage() {
                 Bu EXE henüz dijital olarak imzalanmadı. Windows yayıncıyı doğrulayamayabilir.
                 SHA-256 yalnızca dosya bütünlüğünü kontrol eder; kod imzasının yerini tutmaz.
               </p>
+              <p>
+                Windows SmartScreen “Windows kişisel bilgisayarınızı korudu” uyarısını
+                gösterebilir. Bu uyarı tek başına virüs tespiti anlamına gelmez.
+                Açmadan önce{" "}
+                <Link className="text-link" href="/docs/kurulum#smartscreen">
+                  SmartScreen açıklamasını ve ilk açılış adımlarını
+                </Link>{" "}
+                incele.
+              </p>
             </div>
           )}
         </Reveal>
