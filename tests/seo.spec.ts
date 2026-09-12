@@ -92,7 +92,7 @@ test("SEO initial HTML has unique metadata and readable FAQ answers", async ({ r
       );
     if (path.startsWith("/docs/"))
       expect(
-        schemas.some((s) => s["@type"] === "TechArticle" && s.dateModified === "2026-09-09"),
+        schemas.some((s) => s["@type"] === "TechArticle" && s.dateModified === docs.find((doc) => path === `/docs/${doc.slug}`)?.updatedAt),
       ).toBe(true);
   }
   const robots = await (await request.get("/robots.txt")).text();

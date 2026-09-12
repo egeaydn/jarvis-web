@@ -12,7 +12,7 @@
     "slug": "kurulum",
     "title": "Windows kurulumu",
     "description": "Jarvis Windows x64 beta EXE kurulumu, ilk açılış ve Groq API bağlantısı. Python gerektirmeyen paket ve kaynak koddan kurulum adımları.",
-    "updatedAt": "2026-09-09",
+    "updatedAt": "2026-09-12",
     "group": "Başlarken",
     "time": "5 dk",
     "order": 1
@@ -66,7 +66,7 @@
     "slug": "guncellemeler",
     "title": "Sürümler ve güncelleme",
     "description": "Yayın durumunu ve güncelleme yaklaşımını takip et.",
-    "updatedAt": "2026-09-09",
+    "updatedAt": "2026-09-12",
     "group": "Yardım",
     "time": "2 dk",
     "order": 7

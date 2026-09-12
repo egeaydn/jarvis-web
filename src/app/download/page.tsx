@@ -96,7 +96,7 @@ export default function DownloadPage() {
           )}
           <p className="download-note">
             {release
-              ? "İndirdikten sonra EXE’yi aç ve Ayarlar ve AI bağlantısı bölümünden kendi anahtarını ekle."
+              ? "EXE’yi aç; ilk kullanımda kurulum sihirbazı bağlantı, mikrofon ve tercih adımlarında sana eşlik eder. Mevcut kullanıcılar rehberi Ayarlar’dan yeniden açabilir."
               : "Henüz doğrulanmış bir dağıtım paketi yayımlanmadı."}
           </p>
           <dl className="download-facts">

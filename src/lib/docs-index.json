@@ -42,7 +42,7 @@
     "slug": "kurulum",
     "title": "Windows kurulumu",
     "description": "Jarvis Windows x64 beta EXE kurulumu, ilk açılış ve Groq API bağlantısı. Python gerektirmeyen paket ve kaynak koddan kurulum adımları.",
-    "updatedAt": "2026-09-09",
+    "updatedAt": "2026-09-12",
     "group": "Başlarken",
     "time": "5 dk",
     "order": 1,
@@ -51,7 +51,7 @@
         "id": "paket",
         "title": "İndirilebilir sürüm",
         "body": [
-          "İndirme merkezinde sunulan Windows x64 beta EXE’sini indir. Dosya boyutunu ve SHA-256 bilgisini kontrol et. Bu tek dosyalık uygulama için Python kurman gerekmez.\n\nEXE’yi çift tıklayarak aç. İlk açılışta dosyaların geçici klasöre çıkarılması birkaç saniye sürebilir. **Ayarlar ve AI bağlantısı** bölümünden Groq’u seç, kendi API anahtarını gir ve kaydet. Anahtarın yoksa arayüz açık kalır; bağlantını daha sonra tamamlayabilirsin.\n\nBeta henüz kod imzalı değildir; Windows yayıncı doğrulaması gösteremeyebilir. Temiz Windows kurulumu ve farklı cihaz testleri sürmektedir.\n\n \n  Aşağıdaki terminal adımları yalnızca kaynak koddan çalıştırmak isteyen geliştiriciler içindir."
+          "İndirme merkezinde sunulan Windows x64 beta EXE’sini indir. Dosya boyutunu ve SHA-256 bilgisini kontrol et. Bu tek dosyalık uygulama için Python kurman gerekmez.\n\nEXE’yi çift tıklayarak aç. İlk açılışta dosyaların geçici klasöre çıkarılması birkaç saniye sürebilir. Yeni kullanıcılarda altı adımlı **kurulum sihirbazı** otomatik açılır. Sağlayıcını seç, kendi API anahtarını ekleyip bağlantıyı dene; istersen mikrofonunu test et, Windows ve arka plan tercihlerini belirle, ardından Not Defteri ile ilk denemeni yap.\n\nAPI anahtarın veya mikrofonun hazır değilse ilgili adımı atlayıp arayüzü inceleyebilirsin. Tamamlamadan kapatırsan rehber sonraki açılışta kaldığın yerden devam eder. Daha önce Jarvis kullandıysan mevcut ayarların korunur; **Ayarlar ve AI bağlantısı → Kurulum rehberini yeniden aç** yolunu kullanabilirsin. Mikrofon testi yereldir; sesi kaydetmez veya internete göndermez.\n\nBeta henüz kod imzalı değildir; Windows yayıncı doğrulaması gösteremeyebilir. Temiz Windows kurulumu ve farklı cihaz testleri sürmektedir.\n\n \n  Aşağıdaki terminal adımları yalnızca kaynak koddan çalıştırmak isteyen geliştiriciler içindir."
         ]
       },
       {
@@ -276,7 +276,7 @@
     "slug": "guncellemeler",
     "title": "Sürümler ve güncelleme",
     "description": "Yayın durumunu ve güncelleme yaklaşımını takip et.",
-    "updatedAt": "2026-09-09",
+    "updatedAt": "2026-09-12",
     "group": "Yardım",
     "time": "2 dk",
     "order": 7,
@@ -285,7 +285,7 @@
         "id": "durum",
         "title": "Beta dağıtımı",
         "body": [
-          "Beta EXE’sinin güncel durumunu indirme merkezinden kontrol et. Web sitesi v0.3 ve masaüstü 0.1.0-beta.1 ayrı sürümlerdir. Mevcut beta Groq varsayılanını, mint/grafit arayüzü ve kalıcı mikrofon tercihini içerir."
+          "Beta EXE’sinin güncel durumunu indirme merkezinden kontrol et. Web sitesi v0.3 ve masaüstü 0.1.0-beta.2 ayrı sürümlerdir. Beta 2, altı adımlı ilk kurulum sihirbazını, gerçek AI bağlantı testini, yerel mikrofon testini ve kaldığın yerden devam etmeyi ekler. Mevcut ayarların korunur; rehberi Ayarlar’dan yeniden açabilirsin."
         ]
       },
       {

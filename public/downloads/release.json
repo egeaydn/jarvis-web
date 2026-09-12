@@ -1,10 +1,10 @@
 {
   "JARVIS_RELEASE_PUBLISHED": "true",
-  "JARVIS_DOWNLOAD_URL": "/downloads/Jarvis-0.1.0-beta.1-windows-x64.exe",
-  "JARVIS_VERSION": "0.1.0-beta.1",
-  "JARVIS_SHA256": "4f702b36050165fb79017b8907263aedfaa5c237a1d57638da49aa7c56ce81aa",
-  "JARVIS_SIZE_BYTES": "134352502",
-  "JARVIS_PUBLISHED_AT": "2026-09-09",
+  "JARVIS_DOWNLOAD_URL": "/downloads/Jarvis-0.1.0-beta.2-windows-x64.exe",
+  "JARVIS_VERSION": "0.1.0-beta.2",
+  "JARVIS_SHA256": "17e9f6322bb22d69ae8d7c356dfcf0e4d084a1bf435d0b0e987263c1cd61cb7f",
+  "JARVIS_SIZE_BYTES": "144105050",
+  "JARVIS_PUBLISHED_AT": "2026-09-12",
   "JARVIS_PUBLISHER": "Ege Aydın",
   "JARVIS_PLATFORM": "Windows x64 · Beta"
 }

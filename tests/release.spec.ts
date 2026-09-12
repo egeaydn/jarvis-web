@@ -19,7 +19,7 @@ test("served release metadata, checksum and EXE size match", async ({ request })
   const redirect = await request.head(bundled.JARVIS_DOWNLOAD_URL, { maxRedirects: 0 });
   expect(redirect.status()).toBe(307);
   expect(redirect.headers().location).toBe(
-    "https://github.com/egeaydn/jarvis-web/releases/download/v0.1.0-beta.1/Jarvis-0.1.0-beta.1-windows-x64.exe",
+    `https://github.com/egeaydn/jarvis-web/releases/download/v${bundled.JARVIS_VERSION}/Jarvis-${bundled.JARVIS_VERSION}-windows-x64.exe`,
   );
   const file = await request.head(bundled.JARVIS_DOWNLOAD_URL);
   expect(file.ok()).toBeTruthy();

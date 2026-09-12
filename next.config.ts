@@ -5,6 +5,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/downloads/Jarvis-0.1.0-beta.2-windows-x64.exe",
+        destination:
+          "https://github.com/egeaydn/jarvis-web/releases/download/v0.1.0-beta.2/Jarvis-0.1.0-beta.2-windows-x64.exe",
+        permanent: false,
+      },
+      {
         source: "/downloads/Jarvis-0.1.0-beta.1-windows-x64.exe",
         destination:
           "https://github.com/egeaydn/jarvis-web/releases/download/v0.1.0-beta.1/Jarvis-0.1.0-beta.1-windows-x64.exe",

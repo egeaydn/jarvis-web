@@ -27,6 +27,18 @@ export default function ChangelogPage() {
       </div>
       <div className="release-timeline">
         <article className="release-entry">
+          <span className="status-label">MASAÜSTÜ 0.1.0-beta.2 · 12 EYLÜL 2026</span>
+          <h2>İlk merhabaya birlikte hazırlanalım.</h2>
+          <p>
+            Altı adımlı ilk açılış rehberi: AI bağlantı testi, isteğe bağlı yerel mikrofon
+            testi, Windows ve tepsi tercihleri, Not Defteri denemesi. Yarıda kalan kurulum
+            kaldığı yerden devam eder; mevcut kullanıcı ayarları korunur.
+          </p>
+          <Link className="text-link" href="/download">
+            Kurulum sihirbazlı betayı indir <ArrowUpRight size={15} />
+          </Link>
+        </article>
+        <article className="release-entry">
           <span className="status-label">WEB v0.3 · 09 EYLÜL 2026</span>
           <h2>Şimdi gerçek masaüstünle tanış.</h2>
           <p>
